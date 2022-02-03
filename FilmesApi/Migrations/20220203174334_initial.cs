@@ -1,10 +1,8 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
-using MySql.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FilmesApi.Migrations
 {
-    public partial class FirstMigration : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,12 +11,11 @@ namespace FilmesApi.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    Titulo = table.Column<string>(type: "text", nullable: false),
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Titulo = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Duracao = table.Column<int>(type: "int", nullable: false),
-                    Diretor = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: true),
-                    Lancamento = table.Column<DateTime>(type: "datetime", nullable: false),
-                    Genero = table.Column<string>(type: "text", nullable: true)
+                    Diretor = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    Genero = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
